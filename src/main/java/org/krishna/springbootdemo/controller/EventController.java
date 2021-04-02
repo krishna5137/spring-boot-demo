@@ -1,0 +1,32 @@
+package org.krishna.springbootdemo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+@RequestMapping("/events")
+public class EventController {
+
+    private static List<String> events = new ArrayList<>();
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String displayAllEvents(Model model) {
+        model.addAttribute("events", events);
+        return "events/index";
+    }
+
+    @GetMapping("/create")
+    public String renderCreateEventForm() {
+        return "events/create";
+    }
+
+    @PostMapping("/create")
+    public String createEvent(@RequestParam String eventName) {
+        events.add(eventName);
+        return "redirect:";
+    }
+}

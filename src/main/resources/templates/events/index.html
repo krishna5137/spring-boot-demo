@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>List of Events</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+    <ul>
+        <p th:unless="${events} and ${events.size()}">No Events To Display</p>
+        <th:block th:each="event : ${events}">
+            <li th:text="${event}"></li>
+        </th:block>
+    </ul>
+</body>
+</html>
