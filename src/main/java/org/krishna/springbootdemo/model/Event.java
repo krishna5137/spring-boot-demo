@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Event {
 
-    private int id;
+    private final int id;
     private static int counter = 1;
 
     private String name;
