@@ -1,16 +1,18 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:fragment="head">
-    <title>Spring Boot Rest APi Demo</title>
+    <title>Coding Events</title>
     <meta charset="UTF-8" />
-    <script th:src="@{/script.js}"></script>
-    <link th:href="@{/styles.css}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<body class="container">
 <nav th:fragment="navigation">
-    <ul>
-        <li><a href="/events">All Events</a></li>
-        <li><a href="/events/create">Create Event</a></li>
+    <h1 th:text="${title}">Coding Events</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/events">All Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="/events/create">Create Event</a></li>
     </ul>
 </nav>
 </body>

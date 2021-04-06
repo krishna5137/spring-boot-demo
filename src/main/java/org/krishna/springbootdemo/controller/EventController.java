@@ -1,5 +1,6 @@
 package org.krishna.springbootdemo.controller;
 
+import org.krishna.springbootdemo.model.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,22 +12,25 @@ import java.util.List;
 @RequestMapping("/events")
 public class EventController {
 
-    private static List<String> events = new ArrayList<>();
+    private static List<Event> events = new ArrayList<>();
 
     @RequestMapping(method = RequestMethod.GET)
     public String displayAllEvents(Model model) {
+        model.addAttribute("title", "All events");
         model.addAttribute("events", events);
         return "events/index";
     }
 
     @GetMapping("/create")
-    public String renderCreateEventForm() {
+    public String renderCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Event");
         return "events/create";
     }
 
     @PostMapping("/create")
-    public String createEvent(@RequestParam String eventName) {
-        events.add(eventName);
+    public String createEvent(@RequestParam String eventName,
+                                @RequestParam String eventDescription) {
+        events.add(new Event(eventName, eventDescription));
         return "redirect:";
     }
 }

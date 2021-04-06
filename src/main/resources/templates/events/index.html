@@ -1,16 +1,26 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
-<body>
-<h1>List of Events</h1>
+<body class="container">
 
 <nav th:replace="fragments :: navigation"></nav>
 
-    <ul>
-        <p th:unless="${events} and ${events.size()}">No Events To Display</p>
-        <th:block th:each="event : ${events}">
-            <li th:text="${event}"></li>
-        </th:block>
-    </ul>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <p th:unless="${events} and ${events.size()}">No Events To Display</p>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.description}"></td>
+    </tr>
+</table>
+<!--    <ul>-->
+<!--        <p th:unless="${events} and ${events.size()}">No Events To Display</p>-->
+<!--        -->
+<!--    </ul>-->
 </body>
 </html>
