@@ -5,15 +5,15 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form class="form" action='/events/create' method='POST'>
+<form class="form" method='POST'>
     <div class="form-group">
-        <label for="eventName">
-        <input type="text" class="form-control" id="eventName" name="eventName">
+        <label for="name">
+        <input type="text" class="form-control" id="name" name="name">
         </label>
     </div>
     <div class="form-group">
-        <label for="eventDescription">
-            <input type="text" class="form-control" id="eventDescription" name="eventDescription">
+        <label for="description">
+            <input type="text" class="form-control" id="description" name="description">
         </label>
     </div>
     <div class="form-group">
